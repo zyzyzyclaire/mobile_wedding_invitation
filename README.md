@@ -1,1 +1,0 @@
-# mobile_wedding_invitation
