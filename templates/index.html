@@ -15,32 +15,63 @@
         background-color: rgb(244, 241, 238);
         padding: 30px;
         font-family: 'Nanum Myeongjo', serif;
-        width: 768px;
+        margin: 0 auto;
     }
     #name{
         color: rgb(218, 161, 98);
         /* margin: 50px; */
     }
     #main_card{
-        /* background-color: aliceblue; */
-        background-color: black;
+        margin-top: 30px;
+        border: 10px solid white;
+        width: auto;
+    }
+    #main_pic{
+        width: 30s0px;
+        height: 300px;
+    }
+    #main_container{
+        background-color: white;
     }
 </style>
-<body style="width: 375px; border: 1px solid red" >
+<body>
+    <center>
         <div id="name">
-            {{ shinramg }}
+            {{ groom }}
             <br>
             -----
             <br>
-            {{ shinboo }}
+            {{ bride }}
         </div>
-        <div>
-            <div id="main_card">
-                
+        <div id="main_card">
+            {% if True %}
+            <div>
+                <img src="{{ url_for('static', filename=main_pic) }}" id="main_pic">
+            </div>
+            {% endif %}
+            <div id="main_container">
+                {{ wedding_hall }}
             </div>
         </div>
-        <span>
-            11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
-        </span>
+        <div>
+            111111111111111 1111111111111111111111111 1111111111111111111111111 11111111111111111111111111 1111111111111111111111111111111111111111111111111
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename=pic2) }}">
+        </div>
+        <div>
+            <div>
+                <span>냐냐, 뇨뇨</span><span>의 아들</span><span>김아무개</span>
+                <a href="tel:010-1234-5678">전화</a>
+            </div>
+            <div>
+                <span>냠냠, 뇸뇸</span><span>의 딸</span><span>이아무개</span>
+                <a href="tel:010-1234-5678">전화</a>
+            </div>
+        </div>
+        <div>
+            혼주에게 연락하기
+        </div>
+    </center>    
 </body>
 </html>
