@@ -1,0 +1,33 @@
+사용자 정보 저장(구글 이메일 회원가입)
+  user_id, user_name, user_email, user_token
+
+템플릿
+  template_id, template_name
+
+신랑 신부 정보 저장 {# user_id #}
+  man_name, man_number
+
+  man_father_name, man_father_number
+  man_mother_name, man_mother_number
+
+  man_first_account_name, man_first_account_bank_name, man_first_account_Number, 
+  man_second_account_name, man_second_account_bank_name, man_second_account_Number, 
+
+  women_name, women_number,
+
+  women_father_name, women_father_number
+  women_mother_name, women_mother_number
+
+  women_first_account_name, women_first_account_bank_name, women_first_account_Number, 
+  women_second_account_name, women_second_account_bank_name, women_second_account_Number, 
+
+웨딩 정보
+  wedding_hall_name, wedding_hall_address, wedding_date, wedding_hall_number
+
+사진 정보
+  main_image, sub_image, lisk_image, [all_image_id]
+    all_image > image_name, image_order, image_id
+
+방명록
+  writer, writing_date, contents, password
+
