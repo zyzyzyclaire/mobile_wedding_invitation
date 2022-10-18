@@ -12,10 +12,12 @@
 </head>
 <style>
     body{
-        background-color: rgb(244, 241, 238);
-        padding: 30px;
+        max-width: 474px;
         font-family: 'Nanum Myeongjo', serif;
         margin: 0 auto;
+    }
+    center{
+        background-color: rgb(244, 241, 238);
     }
     #name{
         color: rgb(218, 161, 98);
@@ -27,11 +29,31 @@
         width: auto;
     }
     #main_pic{
-        width: 30s0px;
+        width: 300px;
         height: 300px;
     }
     #main_container{
         background-color: white;
+    }
+    #pic2{
+        width: auto;
+    }
+    #btn_modal{
+        border: 1px solid rgb(218, 161, 98);
+        color: rgb(218, 161, 98);
+        font-size: 13px;
+        border-radius: 30px;
+        margin: 30px 60px;
+        padding: 7px 0px;
+    }
+    #modal{
+        width: 300px;
+        height: 300px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: rgb(244, 241, 238);
+        border-radius: 10px;
     }
 </style>
 <body>
@@ -54,10 +76,10 @@
             </div>
         </div>
         <div>
-            111111111111111 1111111111111111111111111 1111111111111111111111111 11111111111111111111111111 1111111111111111111111111111111111111111111111111
+            111111111111111 1111111111111111
         </div>
         <div>
-            <img src="{{ url_for('static', filename=pic2) }}">
+            <img src="{{ url_for('static', filename=pic2) }}" id="pic2">
         </div>
         <div>
             <div>
@@ -69,9 +91,51 @@
                 <a href="tel:010-1234-5678">전화</a>
             </div>
         </div>
-        <div>
+        <div id="btn_modal">
             혼주에게 연락하기
+        </div>
+        <div id="modal_background" style="position: fixed;background: rgba(0, 0, 0, 0.5);width: 100vw;height: 100vh; top: 0; display: none; left: 0;justify-content: center;align-items: center;text-align: center;">
+            <div id="modal" class="modal-overlay" style="display: flex; background: red;">
+                <div>혼주에게 연락하기</div>
+                <div>
+                    <span>신랑 대디</span><span>냐냐</span>
+                    <a href="tel:010-1234-5678">전화</a>
+                    <a href="sms:010-1234-5678">문자</a>
+                </div>
+                <div>
+                    <span>신랑 마미</span><span>뇨뇨</span>
+                    <a href="tel:010-1234-5678">전화</a>
+                    <a href="sms:010-1234-5678">문자</a>
+                </div>
+                <div>
+                    <span>신부 대디</span><span>냠냠</span>
+                    <a href="tel:010-1234-5678">전화</a>
+                    <a href="sms:010-1234-5678">문자</a>
+                </div>
+                <div>
+                    <span>신부 마미</span><span>뇹뇹</span>
+                    <a href="tel:010-1234-5678">전화</a>
+                    <a href="sms:010-1234-5678">문자</a>
+                </div>
+            </div>
         </div>
     </center>    
 </body>
+<script>
+    const modal = document.getElementById("modal")
+    const btn_modal = document.getElementById("btn_modal")
+
+    const modal_background = document.getElementById('modal_background');
+
+    btn_modal.addEventListener("click", e => {
+        modal_background.style.display = 'flex';
+    })
+    // modal_background
+
+    modal_background.addEventListener("click", e => {
+        if( e.target.id === 'modal_background'){
+            modal_background.style.display = 'none';
+        }
+    })
+</script>
 </html>
