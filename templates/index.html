@@ -55,6 +55,20 @@
         background: rgb(244, 241, 238);
         border-radius: 10px;
     }
+    .accodian_title{
+        position: relative;
+        padding: 17px 0;
+        cursor: pointer;
+        font-size: 14px;
+        border-bottom: 1px solid #dddddd;
+    }
+    .accodian_menu{
+        display: none;
+        overflow: hidden;
+        font-size: 14px;
+        background-color: #f4f4f2;
+        padding: 27px 0;
+        }
 </style>
 <body>
     <center>
@@ -119,23 +133,104 @@
                 </div>
             </div>
         </div>
+        <div>
+            <div>마음 전하실 곳</div>
+            <div>
+                <div class="accodian_title">
+                    신랑측 계좌번호
+                </div>
+                <div class="accodian_menu">
+                    <div>
+                        <div>
+                            <span>은행</span><span>{{account1}}</span>
+                            <br>
+                            <span>김아무개</span>
+                        </div>
+                        <div onclick="copy_account('{{account1}}')">
+                            복사하기
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <span>은행</span><span>{{account2}}</span>
+                            <br>
+                            <span>김아무개</span>
+                        </div>
+                        <div onclick="copy_account('{{account2}}')">
+                            복사하기
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="accodian_title">
+                    신부측 계좌번호
+                </div>
+                <div class="accodian_menu">
+                    <div>
+                        <div>
+                            <span>은행</span><span>{{account3}}</span>
+                            <br>
+                            <span>이아무개</span>
+                        </div>
+                        <div onclick="copy_account('{{account3}}')">
+                            복사하기
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <span>은행</span><span>{{account4}}</span>
+                            <br>
+                            <span>이아무개</span>
+                        </div>
+                        <div onclick="copy_account('{{account4}}')">
+                            복사하기
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                방명록
+            </div>
+        </div>
     </center>    
 </body>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script>
     const modal = document.getElementById("modal")
     const btn_modal = document.getElementById("btn_modal")
 
     const modal_background = document.getElementById('modal_background');
 
+    // 모달클릭시
     btn_modal.addEventListener("click", e => {
         modal_background.style.display = 'flex';
     })
-    // modal_background
-
     modal_background.addEventListener("click", e => {
         if( e.target.id === 'modal_background'){
             modal_background.style.display = 'none';
         }
     })
+
+    // 아코디언
+    $(".accodian_title").click(function() {
+        $(this).next(".accodian_menu").stop().slideToggle(300);
+        $(this).toggleClass('on').siblings().removeClass('on');
+        $(this).next(".accodian_menu").siblings(".accodian_menu").slideUp(300); // 1개씩 펼치기
+    });
+
+    // 계좌번호 복사
+    function copy_account(account_num) {
+        const $textarea = document.createElement("textarea");
+        document.body.appendChild($textarea);
+        
+        $textarea.value = account_num;
+        $textarea.select();
+
+        document.execCommand('copy');
+        document.body.removeChild($textarea);
+
+        alert("계좌번호 "+account_num+"가 복사되었습니다.")
+    }
 </script>
 </html>
