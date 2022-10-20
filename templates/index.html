@@ -68,7 +68,22 @@
         font-size: 14px;
         background-color: #f4f4f2;
         padding: 27px 0;
-        }
+    }
+    .account{
+        display: flex; 
+        justify-content: space-evenly; 
+        align-items: center; 
+    }
+    .div_account{
+        padding: 10px 0px;
+        display: block;
+    }
+    .account_name{
+        margin-top: 8px;
+    }
+    .btn_copy{
+        float: right;
+    }
 </style>
 <body>
     <center>
@@ -140,23 +155,28 @@
                     신랑측 계좌번호
                 </div>
                 <div class="accodian_menu">
-                    <div>
-                        <div>
-                            <span>은행</span><span>{{account1}}</span>
-                            <br>
-                            <span>김아무개</span>
+                    <div class="account">
+                        <div class="div_account">
+                            <div>
+                                <div>
+                                    <span>은행</span><span>{{account1}}</span>
+                                </div>
+                                <div class="account_name">
+                                    <span>김아무개</span>
+                                </div>
+                            </div>
                         </div>
-                        <div onclick="copy_account('{{account1}}')">
+                        <div onclick="copy_account('{{account1}}')" class="btn_copy">
                             복사하기
                         </div>
                     </div>
-                    <div>
-                        <div>
+                    <div class="account">
+                        <div class="div_account">
                             <span>은행</span><span>{{account2}}</span>
                             <br>
-                            <span>김아무개</span>
+                            <span class="account_name">김아무개</span>
                         </div>
-                        <div onclick="copy_account('{{account2}}')">
+                        <div onclick="copy_account('{{account2}}')" class="btn_copy">
                             복사하기
                         </div>
                     </div>
@@ -167,23 +187,23 @@
                     신부측 계좌번호
                 </div>
                 <div class="accodian_menu">
-                    <div>
-                        <div>
+                    <div class="account">
+                        <div class="div_account">
                             <span>은행</span><span>{{account3}}</span>
                             <br>
-                            <span>이아무개</span>
+                            <span class="account_name">이아무개</span>
                         </div>
-                        <div onclick="copy_account('{{account3}}')">
+                        <div onclick="copy_account('{{account3}}')" class="btn_copy">
                             복사하기
                         </div>
                     </div>
-                    <div>
-                        <div>
+                    <div class="account">
+                        <div class="div_account">
                             <span>은행</span><span>{{account4}}</span>
                             <br>
-                            <span>이아무개</span>
+                            <span class="account_name">이아무개</span>
                         </div>
-                        <div onclick="copy_account('{{account4}}')">
+                        <div onclick="copy_account('{{account4}}')" class="btn_copy">
                             복사하기
                         </div>
                     </div>
