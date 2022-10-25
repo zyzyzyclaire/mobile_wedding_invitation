@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <!-- AOS 라이브러리 불러오기-->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"> 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> 
 </head>
 <style>
     body{
@@ -21,7 +24,13 @@
     }
     #name{
         color: rgb(218, 161, 98);
-        /* margin: 50px; */
+        font: 20px bold;
+    }
+    #groom{
+        padding: 50px 0px 10px 0px;
+    }
+    #bride{
+        padding: 10px 0px 30px 0px;
     }
     #main_card{
         margin-top: 30px;
@@ -36,6 +45,7 @@
         background-color: white;
     }
     #pic2{
+        /* width: 100vw; */
         width: auto;
     }
     #btn_modal{
@@ -55,31 +65,46 @@
         background: rgb(244, 241, 238);
         border-radius: 10px;
     }
+    #account_list{
+        padding: 0px 30px;
+    }
     .accodian_title{
         position: relative;
-        padding: 17px 0;
+        padding: 10px 0;
         cursor: pointer;
-        font-size: 14px;
-        border-bottom: 1px solid #dddddd;
+        background-color: rgb(239, 232, 227);
     }
     .accodian_menu{
         display: none;
         overflow: hidden;
         font-size: 14px;
-        background-color: #f4f4f2;
+        background-color: white;
         padding: 27px 0;
-        }
+    }
+    .account{
+        display: flex; 
+        justify-content: space-evenly; 
+        align-items: center; 
+    }
+    .div_account{
+        padding: 10px 0px;
+        display: block;
+    }
+    .account_name{
+        margin-top: 8px;
+    }
+    .btn_copy{
+        float: right;
+    }
 </style>
 <body>
     <center>
-        <div id="name">
-            {{ groom }}
-            <br>
-            -----
-            <br>
-            {{ bride }}
+        <div id="name" data-aos="fade-up", data-aos-duration="2000">
+            <div id="groom">{{ groom }}</div>
+            <div>-----</div>
+            <div id="bride">{{ bride }}</div>
         </div>
-        <div id="main_card">
+        <div id="main_card" data-aos="fade-up", data-aos-duration="2000">
             {% if True %}
             <div>
                 <img src="{{ url_for('static', filename=main_pic) }}" id="main_pic">
@@ -89,13 +114,13 @@
                 {{ wedding_hall }}
             </div>
         </div>
-        <div>
+        <div data-aos="fade-up", data-aos-duration="2000">
             111111111111111 1111111111111111
         </div>
-        <div>
+        <div data-aos="fade-up", data-aos-duration="2000">
             <img src="{{ url_for('static', filename=pic2) }}" id="pic2">
         </div>
-        <div>
+        <div data-aos="fade-up", data-aos-duration="2000">
             <div>
                 <span>냐냐, 뇨뇨</span><span>의 아들</span><span>김아무개</span>
                 <a href="tel:010-1234-5678">전화</a>
@@ -105,7 +130,7 @@
                 <a href="tel:010-1234-5678">전화</a>
             </div>
         </div>
-        <div id="btn_modal">
+        <div id="btn_modal" data-aos="fade-up", data-aos-duration="2000">
             혼주에게 연락하기
         </div>
         <div id="modal_background" style="position: fixed;background: rgba(0, 0, 0, 0.5);width: 100vw;height: 100vh; top: 0; display: none; left: 0;justify-content: center;align-items: center;text-align: center;">
@@ -141,7 +166,7 @@
 
         <div id="current_date_tag"></div>
         <!-- <img style="margin-left: 6px;" src="/static/images/icon_image/Calendar.png" alt="달력" /> -->
-        <div>
+        <div data-aos="fade-up", data-aos-duration="2000" >
             <div style="display: flex; justify-content: space-between;">
                 <div onclick="changeMonth(-1)">
             <!-- <img src="/static/images/icon_image/Arrow_left.png" alt="달력" /> -->
@@ -170,64 +195,85 @@
 
 
 
-        <div>
+        <div data-aos="fade-up", data-aos-duration="2000">
             <div>마음 전하실 곳</div>
-            <div>
-                <div class="accodian_title">
-                    신랑측 계좌번호
-                </div>
-                <div class="accodian_menu">
-                    <div>
-                        <div>
-                            <span>은행</span><span>{{account1}}</span>
-                            <br>
-                            <span>김아무개</span>
+            <div id="account_list">
+                <div>
+                    <div class="accodian_title">
+                        신랑측 계좌번호
+                    </div>
+                    <div class="accodian_menu">
+                        <div class="account">
+                            <div class="div_account">
+                                <div>
+                                    <div>
+                                        <span>은행</span><span>{{account1}}</span>
+                                    </div>
+                                    <div class="account_name">
+                                        <span>김아무개</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div onclick="copy_account('{{account1}}')" class="btn_copy">
+                                복사하기
+                            </div>
                         </div>
-                        <div onclick="copy_account('{{account1}}')">
-                            복사하기
+                        <div class="account">
+                            <div class="div_account">
+                                <div>
+                                    <span>은행</span><span>{{account2}}</span>
+                                </div>
+                                <div class="account_name">
+                                    <span>김아무개</span>
+                                </div>
+                            </div>
+                            <div onclick="copy_account('{{account2}}')" class="btn_copy">
+                                복사하기
+                            </div>
                         </div>
                     </div>
-                    <div>
-                        <div>
-                            <span>은행</span><span>{{account2}}</span>
-                            <br>
-                            <span>김아무개</span>
+                </div>
+                <div>
+                    <div class="accodian_title">
+                        신부측 계좌번호
+                    </div>
+                    <div class="accodian_menu">
+                        <div class="account">
+                            <div class="div_account">
+                                <div>
+                                    <span>은행</span><span>{{account3}}</span>
+                                </div>
+                                <div class="account_name">
+                                    <span>이아무개</span>
+                                </div>
+                            </div>
+                            <div onclick="copy_account('{{account3}}')" class="btn_copy">
+                                복사하기
+                            </div>
                         </div>
-                        <div onclick="copy_account('{{account2}}')">
-                            복사하기
+                        <div class="account">
+                            <div class="div_account">
+                                <div>
+                                    <span>은행</span><span>{{account4}}</span>
+                                </div>
+                                <div class="account_name">
+                                    <span>이아무개</span>
+                                </div>
+                            </div>
+                            <div onclick="copy_account('{{account4}}')" class="btn_copy">
+                                복사하기
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div>
-                <div class="accodian_title">
-                    신부측 계좌번호
-                </div>
-                <div class="accodian_menu">
-                    <div>
-                        <div>
-                            <span>은행</span><span>{{account3}}</span>
-                            <br>
-                            <span>이아무개</span>
-                        </div>
-                        <div onclick="copy_account('{{account3}}')">
-                            복사하기
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <span>은행</span><span>{{account4}}</span>
-                            <br>
-                            <span>이아무개</span>
-                        </div>
-                        <div onclick="copy_account('{{account4}}')">
-                            복사하기
-                        </div>
-                    </div>
-                </div>
-            </div>
+        </div>
+        <div>
             <div>
                 방명록
+            </div>
+            <div>
+                123123<br>123123<br>123123
             </div>
         </div>
     </center>    
@@ -270,7 +316,7 @@
         alert("계좌번호 "+account_num+"가 복사되었습니다.")
     }
 
-
+    AOS.init();
 
 
 
