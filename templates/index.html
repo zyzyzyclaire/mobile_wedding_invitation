@@ -12,91 +12,91 @@
     <!-- AOS 라이브러리 불러오기-->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"> 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> 
+    <style>
+        body{
+            max-width: 474px;
+            font-family: 'Nanum Myeongjo', serif;
+            margin: 0 auto;
+        }
+        center{
+            background-color: rgb(244, 241, 238);
+        }
+        #name{
+            color: rgb(218, 161, 98);
+            font: 20px bold;
+        }
+        #groom{
+            padding: 50px 0px 10px 0px;
+        }
+        #bride{
+            padding: 10px 0px 30px 0px;
+        }
+        #main_card{
+            margin-top: 30px;
+            border: 10px solid white;
+            width: auto;
+        }
+        #main_pic{
+            width: 300px;
+            height: 300px;
+        }
+        #main_container{
+            background-color: white;
+        }
+        #pic2{
+            /* width: 100vw; */
+            width: auto;
+        }
+        #btn_modal{
+            border: 1px solid rgb(218, 161, 98);
+            color: rgb(218, 161, 98);
+            font-size: 13px;
+            border-radius: 30px;
+            margin: 30px 60px;
+            padding: 7px 0px;
+        }
+        #modal{
+            width: 300px;
+            height: 300px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgb(244, 241, 238);
+            border-radius: 10px;
+        }
+        #account_list{
+            padding: 0px 30px;
+        }
+        .accodian_title{
+            position: relative;
+            padding: 10px 0;
+            cursor: pointer;
+            background-color: rgb(239, 232, 227);
+        }
+        .accodian_menu{
+            display: none;
+            overflow: hidden;
+            font-size: 14px;
+            background-color: white;
+            padding: 27px 0;
+        }
+        .account{
+            display: flex; 
+            justify-content: space-evenly; 
+            align-items: center; 
+        }
+        .div_account{
+            padding: 10px 0px;
+            display: block;
+        }
+        .account_name{
+            margin-top: 8px;
+        }
+        .btn_copy{
+            float: right;
+        }
+    </style>
 </head>
-<style>
-    body{
-        max-width: 474px;
-        font-family: 'Nanum Myeongjo', serif;
-        margin: 0 auto;
-    }
-    center{
-        background-color: rgb(244, 241, 238);
-    }
-    #name{
-        color: rgb(218, 161, 98);
-        font: 20px bold;
-    }
-    #groom{
-        padding: 50px 0px 10px 0px;
-    }
-    #bride{
-        padding: 10px 0px 30px 0px;
-    }
-    #main_card{
-        margin-top: 30px;
-        border: 10px solid white;
-        width: auto;
-    }
-    #main_pic{
-        width: 300px;
-        height: 300px;
-    }
-    #main_container{
-        background-color: white;
-    }
-    #pic2{
-        /* width: 100vw; */
-        width: auto;
-    }
-    #btn_modal{
-        border: 1px solid rgb(218, 161, 98);
-        color: rgb(218, 161, 98);
-        font-size: 13px;
-        border-radius: 30px;
-        margin: 30px 60px;
-        padding: 7px 0px;
-    }
-    #modal{
-        width: 300px;
-        height: 300px;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background: rgb(244, 241, 238);
-        border-radius: 10px;
-    }
-    #account_list{
-        padding: 0px 30px;
-    }
-    .accodian_title{
-        position: relative;
-        padding: 10px 0;
-        cursor: pointer;
-        background-color: rgb(239, 232, 227);
-    }
-    .accodian_menu{
-        display: none;
-        overflow: hidden;
-        font-size: 14px;
-        background-color: white;
-        padding: 27px 0;
-    }
-    .account{
-        display: flex; 
-        justify-content: space-evenly; 
-        align-items: center; 
-    }
-    .div_account{
-        padding: 10px 0px;
-        display: block;
-    }
-    .account_name{
-        margin-top: 8px;
-    }
-    .btn_copy{
-        float: right;
-    }
-</style>
 <body>
     <center>
         <div id="name" data-aos="fade-up", data-aos-duration="2000">
